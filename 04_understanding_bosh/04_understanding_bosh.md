@@ -84,3 +84,15 @@ The base ingredient of Bosh VMs is an image that Bosh uses to create the VMs it 
 Telling Bosh what you want to be installed and run
 
 ![Bosh manifest](bosh_manifest.png)
+
+### Cloud configuration
+
+Making Bosh deployments cloud agnostic
+
+The same manifest, unmodified, can be used to deploy the same distributed system to a different cloud.
+
+Bosh abstracts away the differences between multiple clouds using a separate cloud-specific configuration.
+
+Elements in the deployment map onto cloud-specific infrastructure elements.
+
+![Cloud configuration](cloud_configuration.png)
