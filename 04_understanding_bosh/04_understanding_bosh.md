@@ -16,7 +16,7 @@ Bosh requires access to an IaaS
 
 The Bosh reconciliation loop
 
-![Bosh desired state](bosh_desired_state.drawio.png)
+![Bosh desired state](./images/bosh_desired_state.drawio.png)
 
 You tell Bosh the state you want your system to be in:
 
@@ -37,7 +37,7 @@ Bosh takes inputs in the form of:
 
 Bosh interacts with a cloud provider to provision VMs with the appropriate software.
 
-![Bosh as a Black Box](bosh_as-black_box.drawio.png)
+![Bosh as a Black Box](./images/bosh_as-black_box.drawio.png)
 
 ### Deploying with Bosh
 
@@ -83,7 +83,7 @@ The base ingredient of Bosh VMs is an image that Bosh uses to create the VMs it 
 
 Telling Bosh what you want to be installed and run
 
-![Bosh manifest](bosh_manifest.png)
+![Bosh manifest](./images/bosh_manifest.png)
 
 ### Cloud configuration
 
@@ -95,4 +95,4 @@ Bosh abstracts away the differences between multiple clouds using a separate clo
 
 Elements in the deployment map onto cloud-specific infrastructure elements.
 
-![Cloud configuration](cloud_configuration.png)
+![Cloud configuration](./images/cloud_configuration.png)
