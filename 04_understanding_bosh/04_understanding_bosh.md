@@ -46,3 +46,41 @@ Deploying with Bosh (a three-step dance)
 - Release - Upload the release to the Bosh Director
 - Stemcell - Upload the stemcell needed by the release, if there is one
 - Manifest - Deploy the manifest
+
+### Release components
+
+The main parts fo a Bosh software release are **jobs** and **packages**
+
+#### Jobs
+
+Jobs define what application components to run and how to build them.
+
+They provide scripts for **monit** which will be used by Bosh to control how components are started, stopped and monitored.
+
+Elements for jobs end up under `/var/vcap/jobs` on Bosh-managed VMs.
+
+#### Packages
+
+Packages provide source code and/or binary dependencies to jobs.
+
+Some packages may have to be compiled before they can run.
+
+Compilation happens as part of Bosh deployment.
+
+Elements from packages end up under `/var/vacp/packages` on Bosh-managed VMs.
+
+### Bosh stemcell
+
+The base ingredient of Bosh VMs is an image that Bosh uses to create the VMs it manages:
+
+- Includes core tools for Bosh to manage the VM (bosh-agent, monit, runit)
+- Versioned for security updates
+- Supports current Ubuntu and Windows operating systems
+- Available for all major IaaS providers including AWS, Azure, GCP, OpenStack and VMware
+- Published at [https://bosh.io/stemcells](https://bosh.io/stemcells)
+
+### Deployment manifest
+
+Telling Bosh what you want to be installed and run
+
+![Bosh manifest](bosh_manifest.png)
