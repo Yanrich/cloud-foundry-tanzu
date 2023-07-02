@@ -1,4 +1,4 @@
-# LAB 4 - Understanding Bosh
+# Bosh Introduction
 
 ## Bosh introduction
 
