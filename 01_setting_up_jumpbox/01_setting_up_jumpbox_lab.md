@@ -13,7 +13,7 @@ TAS installation to your workstation and use Google's network instead.
 
 ## Commands on your linux workstation
 
-- create a working directory and a .envrc file
+- Create a working directory and a .envrc file
 
 ```bash
 cd ~/workspace
@@ -26,14 +26,105 @@ export CLOUDSDK_IAM_EMAIL="director@${CLOUDSDK_CORE_PROJECT}.iam.gserviceaccount
 EOF
 ```
 
+- Associate the project with the billing account
 
+```bash
+gcloud projects create $CLOUDSDK_CORE_PROJECT
+gcloud alpha billing accounts list --filter="open:true"
+```
+
+- It returns account_id
+
+```bash
+ACCOUNT_ID
+017E7E-C29DB6-xxxxxx
+```
+
+- You can type
+
+```bash
+gcloud alpha billing projects link $CLOUDSDK_CORE_PROJECT --billing-account=017E7E-C29DB6-xxxxxx
+```
+
+- Check if it points to the right project and that the account is active
+
+```bash
+gcloud config list
+gcloud config configurations list
+```
+
+- Enable APIs
+
+```bash
+gcloud services enable compute.googleapis.com && \
+gcloud services enable iam.googleapis.com && \
+gcloud services enable cloudresourcemanager.googleapis.com && \
+gcloud services enable dns.googleapis.com && \
+gcloud services enable sqladmin.googleapis.com
+```
+
+- Installing TAS for VMs requires more than the project's default 8 IP addresses.
+- In the Google Cloud console, go to IAM&Admin > Quotas
+- In the filter, put:
+
+```bash
+ Compute Engine API and Limit name: In-use-addresses-per-project-region
+```
+
+- Select region **us-east1** and edit quotas to change 8 to 25
+- An email will be sent by <cloudquota@google.com> to confirm the change
+
+- Check the list of available images on [Compute Images](https://cloud.google.com/compute/docs/images)
+
+```bash
+ gcloud compute images list
+```
+
+- Create the jumpbox in the project
+
+```bash
+ gcloud compute instances create "jumpbox" \
+ --image-family "ubuntu-2204-lts" \
+ --image-project "ubuntu-os-cloud" \
+ --boot-disk-size "200" \
+ --zone $CLOUDSDK_COMPUTE_ZONE
+```
+
+- Connect to the VM with ssh by entering a passphrase
+
+```bash
+gcloud compute ssh ubuntu@jumpbox --zone=$CLOUDSDK_COMPUTE_ZONE 
+```
 
 ## Commands on your jumpbox
 
-- Go to [Bosh CLI](https://bosh.io/docs/cli-v2-install/) and navigate to the [Bosh CLI Github release page](https://github.com/cloudfoundry/bosh-cli/releases)
+- Once on the jumpbox, type the following command
 
 ```bash
-wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.2.4/bosh-cli-7.2.4-linux-amd64 &&
-chmod +x bosh-cli-7.2.4-linux-amd64 &&
-sudo mv bosh-cli-7.2.4-linux-amd64 /usr/local/bin/bosh
+gcloud config list
 ```
+
+- The account is a default service account. To perform operations as your Google account and have the required permissions, you must do:
+
+```bash
+gcloud auth login
+```
+
+- Run the gcloud config list command again to validate that the account on the jumpbox is the same as that of your Linux workstation.
+
+- In the home directory, create an empty .env file
+
+```bash
+cat > ~/.env <<EOF
+EOF
+```
+
+- Run the following commands
+
+```bash
+source ~/.env
+echo "source ~/.env" >> ~/.bashrc
+sudo apt update && sudo apt install unzip jq git -y
+```
+
+Congratulations! You have setup a jumpbox on GCP.
