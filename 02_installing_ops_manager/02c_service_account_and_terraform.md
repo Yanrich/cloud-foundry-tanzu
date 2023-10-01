@@ -40,6 +40,8 @@ sudo mv terraform /usr/local/bin
 pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.9.5' --product-file-id=697856
 ```
 
+:bulb: See also [Other Terraform templates](https://github.com/pivotal/paving)
+
 - Unzip the Terraform template
 
 ```bash
@@ -71,7 +73,7 @@ SERVICE_ACCOUNT_KEY
 EOF
 ```
 
-- Replace SSL_CERT and SSL_KEY with the values obtained above 
+- Replace SSL_CERT and SSL_KEY with the values obtained above
 
 - Use the terraform commands
 
