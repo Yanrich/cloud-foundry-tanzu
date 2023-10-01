@@ -54,7 +54,7 @@ terraform.tfvars file
 - This section is where you configure the networks that are available to the BOSH director. Because the BOSH director fulfills the role of a network administrator (i.e. it assigns VMs to subnets and gives them IP addresses) it needs to know what networks and subnets are available at the IaaS level. Previously, when you ran ***terraform apply***, several GCP subnets were created for you.
 - You can see those by running **gcloud compute networks subnets list**
 
-- You will see three subnets named with the following convention: 
+- You will see three subnets named with the following convention:
 
 ```bash
 - ENV_NAME-infrastructure-subnet
