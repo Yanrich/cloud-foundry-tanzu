@@ -31,8 +31,8 @@ Use the om CLI to upload both the TAS tile and its stemcell to your Ops
 Manager.
 
 ```bash
-om upload-stemcell -s light-bosh-stemcell-621.543-google-kvm-ubuntu-xenial-go_agent.tgz
-om upload-product -p srt-2.11.39-build.2.pivotal
+om upload-stemcell -s light-bosh-stemcell-621.699-google-kvm-ubuntu-xenial-go_agent.tgz
+om upload-product -p srt-2.11.45-build.2.pivotal
 ```
 
 ### Manually configure TAS tile
@@ -120,12 +120,13 @@ NFS Broker Errand
 
 :warning: VM names differ for the Small Footprint Runtime product versus the full TAS tile. In Small Footprint Runtime, Diego Cells are called Compute, and the Diego Brain is called Control. See [small-footprint](https://docs.pivotal.io/application-service/2-10/operating/small-footprint.html) for a full description of how the two tiles differ.
 
+### Post TAS Install
+
 Once your TAS install is complete, you can use the **cf login** command to
 connect to your own instance as you did before. However, this time you will
 need to use your environment-specific API endpoint and the admin user. Be
-aware, this user is not the same admin user you used previously to access the
-Ops Manager.
-This new UAA admin account was created by the TAS tile .
+aware, this user is not the same admin user you used previously to access the Ops Manager.
+This new UAA admin account was created by the TAS tile.
 Click on the TAS tile in ops manager. Click on Credentials tab. Now go to UAA
 section and see the credentials of Admin
 You can use this credentials to login to apps manager at **apps.vcapenv.example.com**.
