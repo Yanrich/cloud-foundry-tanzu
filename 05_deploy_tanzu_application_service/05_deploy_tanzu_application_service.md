@@ -23,6 +23,7 @@ Add the following lines to your ~/.env file:
 ```bash
 export OM_USERNAME="admin"
 export OM_PASSWORD="******" # replace with your ops manager password
+source ~/.env
 ```
 
 ### Import tile and stemcell to ops manager
@@ -31,8 +32,8 @@ Use the om CLI to upload both the TAS tile and its stemcell to your Ops
 Manager.
 
 ```bash
-om upload-stemcell -s light-bosh-stemcell-621.699-google-kvm-ubuntu-xenial-go_agent.tgz
-om upload-product -p srt-2.11.45-build.2.pivotal
+om upload-stemcell -s light-bosh-stemcell-1.289-google-kvm-ubuntu-jammy-go_agent.tgz
+om upload-product -p srt-4.0.12-build.2.pivotal
 ```
 
 ### Manually configure TAS tile

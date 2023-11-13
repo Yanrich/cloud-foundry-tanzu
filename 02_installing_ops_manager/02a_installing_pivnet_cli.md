@@ -2,7 +2,7 @@
 
 In this section, you will be:
 
-- Installing pivnet and understand how to use it
+- Install pivnet and understand how to use it
 - Create a certificate
 - Use terraform to create all required resources on GCP
 - Install ops manager
@@ -76,12 +76,14 @@ In the "Small Footprint TAS" section, click on the "i" and copy the Pivnet CLI l
 
 ```bash
 pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.11.45' --product-file-id=1607083
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.12+LTS-T' --product-file-id=1648915
 ```
 
 By clicking on Pivotal Stemcells (Ubuntu Xenial), do the same operation for Ubuntu Xenial Stemcell for Google Cloud Platform
 
 ```bash
 pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.699' --product-file-id=1608103
+pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.289' --product-file-id=1647387
 ```
 
 For Tanzu Ops Manager, note the version and build
