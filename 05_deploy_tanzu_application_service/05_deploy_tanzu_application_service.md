@@ -11,8 +11,8 @@ In this lab you will be:
 See [om tool](https://github.com/pivotal-cf/om)
 
 ```bash
-wget https://github.com/pivotal-cf/om/releases/download/7.9.0/om-linux-amd64-7.9.0
-chmod +x om-linux-amd64-7.9.0
+wget https://github.com/pivotal-cf/om/releases/download/7.9.0/om-linux-amd64-7.9.0 &&
+chmod +x om-linux-amd64-7.9.0 &&
 sudo mv om-linux-amd64-7.9.0 /usr/local/bin/om
 ```
 
