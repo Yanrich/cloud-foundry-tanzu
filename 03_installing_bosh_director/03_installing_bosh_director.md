@@ -131,6 +131,13 @@ Be sure to select the checkbox Include OpsManager Root CA in Trusted Certs
 
 Increase the value of Main Compilation Job to eight. A higher value will increase parallelization and provide faster completion of bosh deployments that you will be performing in subsequent labs.
 
+- Suggestions:
+
+```bash
+Bosh Director: e2-highmem-2 cpu:2 ram:16 disk: 64
+Main Compilation Job: e2-highmem-4 cpu:4 ram:32 disk:128
+```
+
 ### Apply changes
 
 - At this point, the BOSH director will be fully configured and ready to deploy.
