@@ -89,8 +89,8 @@ bosh upload-release --sha1 59dbc1e8dd5f4c85cca18dce1d5b70f11f9ddfcd \
 - Upload [stemcell](https://bosh.io/stemcells/)
 
 ```bash
-bosh upload-stemcell --sha1 759df2a5f19517b1cff8ae2f9cf824c0ec20fb82 \
-  https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-jammy-go_agent?v=1.148
+bosh upload-stemcell --sha1 35138db48751027e6f71e28511755d9e4b583c66 \
+  https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-jammy-go_agent?v=1.301
 ```
 
 - You can test the follwing commands:
