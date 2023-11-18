@@ -76,7 +76,6 @@ Locate the file you generated earlier which ends .cert and copy its contents
 into the Ops Manager text field labelled Certificate PEM
 Locate the file you generated earlier which ends .key and copy the contents
 into the Ops Manager text field labelled Private Key PEM
-Choose Disable for HAProxy forwards requests to Router over TLS
 Click Save.
 
 #### App Developer Controls
