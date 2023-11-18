@@ -7,9 +7,9 @@
 - Go to [Bosh CLI](https://bosh.io/docs/cli-v2-install/) and navigate to the [Bosh CLI Github release page](https://github.com/cloudfoundry/bosh-cli/releases)
 
 ```bash
-wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.4.0/bosh-cli-7.4.0-linux-amd64 &&
-chmod +x bosh-cli-7.4.0-linux-amd64 &&
-sudo mv bosh-cli-7.4.0-linux-amd64 /usr/local/bin/bosh
+wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.4.1/bosh-cli-7.4.1-linux-amd64 &&
+chmod +x bosh-cli-7.4.1-linux-amd64 &&
+sudo mv bosh-cli-7.4.1-linux-amd64 /usr/local/bin/bosh
 ```
 
 ### Install OM
