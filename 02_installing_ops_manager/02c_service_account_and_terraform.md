@@ -40,7 +40,7 @@ sudo mv terraform /usr/local/bin
 pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.9.5' --product-file-id=697856
 ```
 
-:bulb: See also [Other Terraform templates](https://github.com/pivotal/paving)
+:bulb: For more information, please see [Deploying Ops Manager on GCP Using Terraform](https://docs.pivotal.io/ops-manager/2-9/gcp/prepare-env-terraform.html) and [Install Ops Manager using paving in GitHub](https://github.com/pivotal/paving)
 
 - Unzip the Terraform template
 
