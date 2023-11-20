@@ -73,6 +73,15 @@ BOSH_ENVIRONMENT
 
 ## Deploy nginx
 
+### Upload stemcell
+
+- Upload [stemcell](https://bosh.io/stemcells/)
+
+```bash
+bosh upload-stemcell --sha1 35138db48751027e6f71e28511755d9e4b583c66 \
+  https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-jammy-go_agent?v=1.301
+```
+
 ### Upload nginx release
 
 - Go to [nginx release](https://bosh.io/releases/github.com/cloudfoundry-community/nginx-release?all=1)
@@ -84,14 +93,7 @@ bosh upload-release --sha1 59dbc1e8dd5f4c85cca18dce1d5b70f11f9ddfcd \
   https://bosh.io/d/github.com/cloudfoundry-community/nginx-release?v=1.21.6
 ```
 
-### Upload stemcell and deploy
-
-- Upload [stemcell](https://bosh.io/stemcells/)
-
-```bash
-bosh upload-stemcell --sha1 35138db48751027e6f71e28511755d9e4b583c66 \
-  https://bosh.io/d/stemcells/bosh-google-kvm-ubuntu-jammy-go_agent?v=1.301
-```
+### Practise some commands
 
 - You can test the follwing commands:
 
@@ -102,9 +104,34 @@ bosh task -r
 bosh task -r -- cpi
 bosh vms
 bosh deployments
-bosh releases
 bosh stemcells
+bosh releases | grep nginx
 ```
+
+### Create the nginx manifest deploy
+
+- In the [nginx-release GitHub repo](https://https://github.com/cloudfoundry-community/nginx-release), there is a a folder **manifest**
+- Download the nginx_ubuntu_centos.yml file
+
+```bash
+curl -sLO https://raw.githubusercontent.com/cloudfoundry-community/nginx-release/master/manifests/nginx_ubuntu_centos.yml && mv nginx_ubuntu_centos.yml nginx_cloudfoundry.yml
+```
+
+- Remove the section related to centos
+- To have information about vm_type, you can check the bosh config
+
+```bash
+bosh cloud-config | less
+```
+
+- the final version of the nginx file is available in the manifest folder in this section
+- Create a folder manifests on our jumpobx and put the nginx.yml file with the [cat command](https://www.cyberciti.biz/faq/linux-unix-appleosx-bsd-cat-command-examples/#4)
+
+```bash
+cat > nginx.yml
+```
+
+### Deploy nging using the yaml file
 
 - Deploy nginx
 
@@ -115,7 +142,8 @@ bosh deploy -d nginx nginx.yml
 - Retrieve logs
 
 ```bash
-bosh logs -d nginx
+bosh -d nginx logs
+tar -tzvf nginx-20231119-044404-334908227.tgz
 ```
 
 ## Inside VM
@@ -123,7 +151,7 @@ bosh logs -d nginx
 - access to the VM
 
 ```bash
-bosh ssh -d nginx
+bosh -d nginx ssh nginx/0
 ```
 
 - to validate is nginx is running
@@ -174,21 +202,30 @@ lrwxrwxrwx  1 root root   18 Jul  1 20:40 sys -> /var/vcap/data/sys
 - Understand files
 
 ```bash
-nginx/d7be3cfb-1a38-4690-9ed0-4cfc37c78477:/var/vcap$ sudo -i
-nginx/d7be3cfb-1a38-4690-9ed0-4cfc37c78477:~# cd /var/vcap/
+nginx/d7be3cfb...77:/var/vcap$ sudo -s
+nginx/d7be3cfb...77:~# cd /var/vcap/
 
-nginx/d7be3cfb-1a38-4690-9ed0-4cfc37c78477:/var/vcap# find . -name ctl
+nginx/d7be3cfb...77:~# pstree
+
+nginx/d7be3cfb...77:/var/vcap# find . -name nginx.conf
+./data/jobs/nginx/d7be3cfb...77/etc/nginx.conf
+./data/packages/nginx/d7be3cfb...77/conf/nginx.conf
+
+nginx/d7be3cfb...77:/var/vcap# cat /var/vcap/store/nginx/index.html 
+<html><body><p>Hello world</p></body></html>
+
+nginx/d7be3cfb...77:/var/vcap# find . -name ctl
 ./data/jobs/loggr-system-metrics-agent/03c70319c790ddc032ec6b002d96a41bd0ec80fa/bin/ctl
 ./data/jobs/nginx/1299f392e1ec6c1eefcdbb6ae76ee8615dbc654c/bin/ctl
 
-nginx/d7be3cfb-1a38-4690-9ed0-4cfc37c78477:/var/vcap# find . -name monit
+nginx/d7be3cfb...77:/var/vcap# find . -name monit
 ./bosh/bin/monit
 ./monit
 ./data/jobs/bosh-dns/4a8b5b99b27b0f24c6b0449dcc370db58f3902ca/monit
 ./data/jobs/loggr-system-metrics-agent/03c70319c790ddc032ec6b002d96a41bd0ec80fa/monit
 ./data/jobs/nginx/1299f392e1ec6c1eefcdbb6ae76ee8615dbc654c/monit
 
-nginx/d7be3cfb-1a38-4690-9ed0-4cfc37c78477:/var/vcap# cat jobs/nginx/monit 
+nginx/d7be3cfb...77:/var/vcap# cat jobs/nginx/monit 
 check process nginx
   with pidfile /var/vcap/sys/run/nginx/nginx.pid
   start program "/var/vcap/jobs/nginx/bin/ctl start"

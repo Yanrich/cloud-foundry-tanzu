@@ -1,3 +1,4 @@
+---
 name: nginx
 
 releases:
@@ -11,9 +12,9 @@ stemcells:
 
 instance_groups:
 - name: nginx
-  instances: 1    
+  instances: 1
   azs: ["us-east1-b", "us-east1-c", "us-east1-d"]
-  vm_type: small
+  vm_type: e2-small
   stemcell: default
   networks:
   - name: infrastructure
@@ -43,7 +44,7 @@ instance_groups:
           echo '<html><body><p>Hello world</p></body></html>' > index.html
         fi
 
-update:          
+update:
   canaries: 1
   max_in_flight: 10
   serial: false
