@@ -75,15 +75,15 @@ In the details (right column), we have the supported versions VMware Tanzu Opera
 In the "Small Footprint TAS" section, click on the "i" and copy the Pivnet CLI line
 
 ```bash
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.11.50' --product-file-id=1607083
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.11.50' --product-file-id=1675339
 pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.12+LTS-T' --product-file-id=1648915
 ```
 
 By clicking on Pivotal Stemcells (Ubuntu Xenial), do the same operation for Ubuntu Xenial Stemcell for Google Cloud Platform
 
 ```bash
-pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.759' --product-file-id=1608103
-pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.318' --product-file-id=1647387
+pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.759' --product-file-id=1655574
+pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.318' --product-file-id=1671410
 ```
 
 For Tanzu Ops Manager, note the version and build
