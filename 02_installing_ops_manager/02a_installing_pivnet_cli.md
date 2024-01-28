@@ -66,7 +66,7 @@ In the search field, enter "VMware Tanzu Application Service for VMs"
 
 On the product page, note "Releases" drop-down
 
-For a given release (for instance 2.11.45), a product will consist of one or more downloadable software artifacts
+For a given release (for instance 2.11.50), a product will consist of one or more downloadable software artifacts
 
 There are 3 artifacts named “Small Footprint PAS”, ”CF CLI” and “Pivotal Application Service”
 
@@ -75,19 +75,19 @@ In the details (right column), we have the supported versions VMware Tanzu Opera
 In the "Small Footprint TAS" section, click on the "i" and copy the Pivnet CLI line
 
 ```bash
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.11.45' --product-file-id=1607083
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.11.50' --product-file-id=1607083
 pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.12+LTS-T' --product-file-id=1648915
 ```
 
 By clicking on Pivotal Stemcells (Ubuntu Xenial), do the same operation for Ubuntu Xenial Stemcell for Google Cloud Platform
 
 ```bash
-pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.699' --product-file-id=1608103
-pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.289' --product-file-id=1647387
+pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.759' --product-file-id=1608103
+pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.318' --product-file-id=1647387
 ```
 
 For Tanzu Ops Manager, note the version and build
 
 ```bash
-Tanzu Ops Manager YAML for GCP - 2.10.61-build.1615
+Tanzu Ops Manager YAML for GCP - 3.0.19+LTS-T
 ```
