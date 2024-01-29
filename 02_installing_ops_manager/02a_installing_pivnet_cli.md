@@ -86,8 +86,8 @@ pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release
 pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.318' --product-file-id=1671410
 ```
 
-For Tanzu Ops Manager, note the version and build
+For Tanzu Ops Manager, note the version and the build
 
 ```bash
-Tanzu Ops Manager YAML for GCP - 3.0.19+LTS-T
+Tanzu Ops Manager YAML for GCP - 3.0.19+LTS-T (3.0.19-build.1050)
 ```

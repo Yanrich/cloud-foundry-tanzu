@@ -6,11 +6,12 @@ In this lab you will be:
 
 :bulb: It is recommended to do the certificate operations on your linux workstation
 
-- Edit the ~/workspace/.envrc file and add the domain name you have
+- Edit the ~/.env file and add the domain name you have
 
 ```bash
 export ENV_NAME=vcapenv
 export DOMAIN_NAME=example.com
+source ~/.bashrc
 ```
 
 - The output of this lab will be obtaining 2 files
