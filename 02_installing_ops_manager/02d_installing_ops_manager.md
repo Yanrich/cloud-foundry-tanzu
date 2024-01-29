@@ -15,9 +15,9 @@ The Google Cloud Console web UI can be used to gain a more-detailed understandin
 your environment.
 
 In GCP console, under Network Services > Cloud DNS, if you observe the
-Cloud DNS Zone, there will be a zone and dns name will be **vcapenv.example.com**. In this zone, check the NS type and note the 4 domain names associated (for instance ns-cloud-a1.googledomains.com., ns-cloud-a2.googledomains.com., ns-cloud-a3.googledomains.com. et ns-cloud-a4.googledomains.com)
+Cloud DNS Zone, there will be a zone **vcapenv-zone**. In this zone, check the NS type and note the 4 domain names associated (for instance ns-cloud-a1.googledomains.com., ns-cloud-a2.googledomains.com., ns-cloud-a3.googledomains.com. et ns-cloud-a4.googledomains.com)
 
-At the same level of **vcapenv.example.com**, create a DNS zone
+At the same level of **vcapenv-zone**, create a new DNS zone **examplezone**
 
 ```bash
 Zone type: Public
@@ -51,6 +51,7 @@ DNS name: vcapenv.example.com
 ```
 
 Select Resource record type as NS and writ the name servers in the  vcapenv-zone
+
 ```bash
 ns-cloud-a1.googledomains.com.
 ns-cloud-a2.googledomains.com.
@@ -64,7 +65,7 @@ ns-cloud-a4.googledomains.com.
 - Give User name as admin and some password.
 - Give any passphrase which has 20 characters
 - It will take some time to configure and it will show a login screen.
-- Login with your credentials. 
+- Login with your credentials.
 - You will be able to observe home page of ops
 manager.
 
