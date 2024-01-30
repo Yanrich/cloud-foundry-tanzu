@@ -33,7 +33,6 @@ Select Google Config. Complete the following fields:
 
 ### Director Config
 
-- Select Director Config.
 - In the NTP Servers (comma delimited) field, enter 169.254.169.254
 - Select the Enable VM Resurrector Plugin checkbox to enable the BOSH Resurrector functionality and increase your runtime availability.
 - Enable Post Deploy Scripts.
@@ -48,6 +47,12 @@ Select Google Config. Complete the following fields:
 terraform.tfvars file
 - In our case, azs should be zones = ["us-east1-b", "us-east1-c", "us-east1-d"]
 - Click on Add 3 times and give the above values
+
+```bash
+Google Availability Zone: us-east1-b
+Google Availability Zone: us-east1-c
+Google Availability Zone: us-east1-d
+```
 
 ### Create networks
 

@@ -11,9 +11,9 @@ In this lab you will be:
 See [om tool](https://github.com/pivotal-cf/om)
 
 ```bash
-wget https://github.com/pivotal-cf/om/releases/download/7.9.0/om-linux-amd64-7.9.0 &&
-chmod +x om-linux-amd64-7.9.0 &&
-sudo mv om-linux-amd64-7.9.0 /usr/local/bin/om
+wget https://github.com/pivotal-cf/om/releases/download/7.10.1/om-linux-amd64-7.10.1 &&
+chmod +x om-linux-amd64-7.10.1 &&
+sudo mv om-linux-amd64-7.10.1 /usr/local/bin/om
 ```
 
 Define environment variables that pre-configure your target om url and
@@ -32,8 +32,9 @@ Use the om CLI to upload both the TAS tile and its stemcell to your Ops
 Manager.
 
 ```bash
-om upload-stemcell -s light-bosh-stemcell-1.289-google-kvm-ubuntu-jammy-go_agent.tgz
-om upload-product -p srt-4.0.12-build.2.pivotal
+om upload-stemcell -s light-bosh-stemcell-1.318-google-kvm-ubuntu-jammy-go_agent.tgz
+om upload-product -p srt-2.11.50-build.2.pivotal
+#om upload-product -p srt-4.0.12-build.2.pivotal
 ```
 
 ### Manually configure TAS tile
