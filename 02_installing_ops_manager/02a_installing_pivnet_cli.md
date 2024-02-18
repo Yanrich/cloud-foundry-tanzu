@@ -66,7 +66,7 @@ In the search field, enter "VMware Tanzu Application Service for VMs"
 
 On the product page, note "Releases" drop-down
 
-For a given release (for instance 2.11.50), a product will consist of one or more downloadable software artifacts
+For a given release (for instance 4.0.17+LTS-T), a product will consist of one or more downloadable software artifacts
 
 There are 3 artifacts named “Small Footprint PAS”, ”CF CLI” and “Pivotal Application Service”
 
@@ -75,8 +75,19 @@ In the details (right column), we have the supported versions VMware Tanzu Opera
 In the "Small Footprint TAS" section, click on the "i" and copy the Pivnet CLI line
 
 ```bash
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.11.50' --product-file-id=1675339
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.12+LTS-T' --product-file-id=1648915
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.17+LTS-T' --product-file-id=1725176
+```
+
+In the "CF CLI" section, note the version supported and install cf CLI (see [Installers and compressed binaries](https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide#installers-and-compressed-binaries))
+
+```bash
+curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=8.7.7&source=github" | tar -zx
+sudo mv cf8 /usr/local/bin
+sudo mv cf /usr/local/bin
+# ...copy tab completion file on Ubuntu (takes affect after re-opening your shell)
+sudo curl -o /usr/share/bash-completion/completions/cf8 https://raw.githubusercontent.com/cloudfoundry/cli-ci/master/ci/installers/completion/cf8
+# ...and to confirm your cf CLI version
+cf version
 ```
 
 By clicking on Pivotal Stemcells (Ubuntu Xenial), do the same operation for Ubuntu Xenial Stemcell for Google Cloud Platform

@@ -73,10 +73,10 @@ Click the tile to configure it.
 On the Ops Manager, locate the configuration section called Certificates and private keys for the Gorouter and HAProxy.
 Click the Add button.
 Set the Name to default.
-Locate the file you generated earlier which ends .cert and copy its contents
+Locate the file you generated earlier which ends .crt and copy its contents
 into the Ops Manager text field labelled Certificate PEM
 Locate the file you generated earlier which ends .key and copy the contents
-into the Ops Manager text field labelled Private Key PEM
+into the Ops Manager text field labelled Private Key PEM.
 Click Save.
 
 #### App Developer Controls
@@ -93,7 +93,7 @@ As per the Networking instructions above, find your certificate and private key 
 
 #### Credhub
 
-Add an encryption key in Internal encryption provider keys
+Add an encryption key in Internal encryption provider keys.
 Name the key default.
 Choose a secret Key that is at least 20 characters long. There is currently no validation for this in Ops Manager, but the deployment will fail and waste your time.
 Check Primary
@@ -106,11 +106,12 @@ email: <admin@example.com>
 #### Errands
 
 Select Off for the following errands:
-Notifications Errand
-Notifications UI Errand
-App Autoscaler Errand
-App Autoscaler Smoke Test Errand
-NFS Broker Errand
+
+- Notifications Errand
+- Notifications UI Errand
+- App Autoscaler Errand
+- App Autoscaler Smoke Test Errand
+- NFS Broker Errand
 
 #### Resource Config
 
