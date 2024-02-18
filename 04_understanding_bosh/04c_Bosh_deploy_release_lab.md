@@ -186,9 +186,7 @@ drwxr-xr-x  3 root root 4096 Jul  1 20:41 store
 lrwxrwxrwx  1 root root   18 Jul  1 20:40 sys -> /var/vcap/data/sys
 ```
 
-- Go to [Configuration Locations](https://bosh.io/docs/vm-config/)
-
-- **vmware** cloud application platform
+- Go to [Configuration Locations](https://bosh.io/docs/vm-config/) with **vcap** equal **vmware cloud application platform**
 
 | Mount | Description |
 |---|---|
