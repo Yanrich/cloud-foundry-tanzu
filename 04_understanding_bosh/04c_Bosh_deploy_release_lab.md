@@ -7,9 +7,9 @@
 - Go to [Bosh CLI](https://bosh.io/docs/cli-v2-install/) and navigate to the [Bosh CLI Github release page](https://github.com/cloudfoundry/bosh-cli/releases)
 
 ```bash
-wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.4.1/bosh-cli-7.4.1-linux-amd64 &&
-chmod +x bosh-cli-7.4.1-linux-amd64 &&
-sudo mv bosh-cli-7.4.1-linux-amd64 /usr/local/bin/bosh
+wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.5.2/bosh-cli-7.5.2-linux-amd64 &&
+chmod +x bosh-cli-7.5.2-linux-amd64 &&
+sudo mv bosh-cli-7.5.2-linux-amd64 /usr/local/bin/bosh
 ```
 
 ### Install OM
@@ -17,9 +17,9 @@ sudo mv bosh-cli-7.4.1-linux-amd64 /usr/local/bin/bosh
 - Go to [OM](https://github.com/pivotal-cf/om) and navigate to the [OM Github release page](https://github.com/pivotal-cf/om/releases)
 
 ```bash
-wget https://github.com/pivotal-cf/om/releases/download/7.9.0/om-linux-amd64-7.9.0 &&
-chmod +x om-linux-amd64-7.9.0 &&
-sudo mv om-linux-amd64-7.9.0 /usr/local/bin/om
+wget https://github.com/pivotal-cf/om/releases/download/7.10.1/om-linux-amd64-7.10.1 &&
+chmod +x om-linux-amd64-7.10.1 &&
+sudo mv om-linux-amd64-7.10.1 /usr/local/bin/om
 ```
 
 ### Add env variables
@@ -279,17 +279,19 @@ grep grep --after-context 3 "Sending hm message 'alert'" \
 
 ```bash
 cat /var/vcap/store/nginx/index.html
-sudo -s vi /var/vcap/store/nginx/index.html
+sudo -s vi /var/vcap/store/nginx/index.html # Hello Universe
 curl localhost
 sudo sv stop agent
 while true; do sleep 5; date; done
 ```
 
-- on jumpbox
+- Bosh detect that the VM is unresponsive and recreate a new one
 
 ```bash
+~. # close the SSH connection and retourn to your jumpbox command line terminal 
 watch -n 5 bosh tasks
-bosh ssh -d nginx -c 'curl localhost'
+bosh -d nginx ssh nginx/0 -c "curl localhost"
+#stdout | <html><body><p>Hello world</p></body></html>
 ```
 
 - Deploy nginx_with_persistent_disk.yml to add a persitent disk
@@ -301,14 +303,19 @@ bosh deploy -d nginx nginx_with_persistent_disk.yml
 - Modification on index.html -> Hello Universe is kept
 
 ```bash
+df -h # /var/vcap/store is now a separate mount point
 sudo -s vi /var/vcap/store/nginx/index.html
 curl localhost
 <html><body><p>Hello Universe</p></body></html>
 sudo sv stop agent
 while true; do sleep 5; date; done
+~. # close the SSH connection and retourn to your jumpbox command line terminal 
+watch -n 5 bosh tasks
+bosh -d nginx ssh nginx/0 -c "curl localhost"
+#stdout | <html><body><p>Hello world</p></body></html>
 ```
 
-- Cleanup
+- Cleanup to remove releases and stemcells no longer used
 
 ```bash
 bosh clean-up --all
