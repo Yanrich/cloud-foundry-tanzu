@@ -48,7 +48,7 @@ cd ~/pivotal-cf-terraforming-gcp-f4aab02/terraforming-pas
 terraform output ops_manager_ssh_private_key > ~/.ssh/ops_manager
 terraform output ops_manager_ssh_public_key > ~/.ssh/ops_manager.pub
 chmod 600 ~/.ssh/ops_manager
-om bosh-env #pour récupérer les variables d'environnements
+om bosh-env #get the env variables
 om bosh-env -i ~/.ssh/ops_manager
 echo 'eval "$(om bosh-env -i ~/.ssh/ops_manager)"' >> ~/.env
 source ~/.bashrc
