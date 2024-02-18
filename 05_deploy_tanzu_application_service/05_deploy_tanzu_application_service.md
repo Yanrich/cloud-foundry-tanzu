@@ -120,7 +120,7 @@ Select Off for the following errands:
 - Router (load balancers)
   - tcp:vcapenv-cf-ws,http:vcapenv-httpslb
 
-:warning: VM names differ for the Small Footprint Runtime product versus the full TAS tile. In Small Footprint Runtime, Diego Cells are called Compute, and the Diego Brain is called Control. See [small-footprint](https://docs.pivotal.io/application-service/2-10/operating/small-footprint.html) for a full description of how the two tiles differ.
+:warning: VM names differ for the Small Footprint Runtime product versus the full TAS tile. In Small Footprint Runtime, Diego Cells are called Compute, and the Diego Brain is called Control. See [small-footprint](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/small-footprint.html) for a full description of how the two tiles differ.
 
 ### Post TAS Install
 
