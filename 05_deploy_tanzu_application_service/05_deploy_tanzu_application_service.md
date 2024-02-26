@@ -122,15 +122,37 @@ Select Off for the following errands:
 
 :warning: VM names differ for the Small Footprint Runtime product versus the full TAS tile. In Small Footprint Runtime, Diego Cells are called Compute, and the Diego Brain is called Control. See [small-footprint](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/small-footprint.html) for a full description of how the two tiles differ.
 
+### Post TAS Install with errands
+
+On the jumpbox, you can see the errands available
+
+```bash
+  bosh -d `bosh deployments --column=name` errands
+```
+
+You can run a second time Smoke Test Errand if you want
+
+```bash
+  bosh -d `bosh deployments --column=name` run-errand smoke_tests
+```
+
 ### Post TAS Install
 
-Once your TAS install is complete, you can use the **cf login** command to
-connect to your own instance as you did before. However, this time you will
-need to use your environment-specific API endpoint and the admin user. Be
-aware, this user is not the same admin user you used previously to access the Ops Manager.
+Once your TAS install is complete, you can export the configuration
+
+```bash
+  om products
+  om staged-config --include-credentials -p cf > cf.yml
+```
+
+You can also use the **cf login** command to connect to your own instance as you did before.
+
+However, this time you will need to use your environment-specific API endpoint and the admin user. Be aware, this user is not the same admin user you used previously to access the Ops Manager.
+
 This new UAA admin account was created by the TAS tile.
-Click on the TAS tile in ops manager. Click on Credentials tab. Now go to UAA
-section and see the credentials of Admin
+
+Click on the TAS tile in ops manager. Click on Credentials tab. Now go to UAA section and see the credentials of Admin
+
 You can use this credentials to login to apps manager at **apps.vcapenv.example.com**.
 
 Congratulations!! You have deployed Tanzu Application Service
