@@ -43,7 +43,7 @@ Now create 1 org using
   cf target -o "my-org" -s "my-space"
 ```
 
-Clone the repo [cloudfoundry-samples/test-app](https://github.com/cloudfoundry-samples/test-app). The app is deployed.
+Clone the repo [cloudfoundry-samples/test-app](https://github.com/cloudfoundry-samples/test-app).
 
 ```bash
   git clone https://github.com/cloudfoundry-samples/test-app
@@ -51,7 +51,9 @@ Clone the repo [cloudfoundry-samples/test-app](https://github.com/cloudfoundry-s
   cf push
 ```
 
-If you try to do the same thing with the quota in my-space2, an error occured *Routes quota exceeded for organization 'my-org2'*.
+The app is deployed.
+
+If you try to do the same thing with the **myorgquota** quota in my-space2, an error occured *Routes quota exceeded for organization 'my-org2'*.
 
 ```bash
   cf create-org my-org2 -q myorgquota
