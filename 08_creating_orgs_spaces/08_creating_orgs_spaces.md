@@ -2,7 +2,7 @@
 
 In this lab you will see:
 
-- concepts of orgs, spaces and roles
+- concepts of orgs, spaces, roles and quotas
 - creating orgs, spaces, users and quotas
 
 ## Planning orgs and spaces in Cloud Foundry
@@ -40,10 +40,19 @@ The following describes each type of user role in TAS for VMs:
 
 See [User role permissions](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/roles.html#user-role-permissions-3)
 
+### Quotas
 
-## Planning orgs and spaces in Cloud Foundry
+Org quotas restrict the amount of resources available for all spaces within that org (for instance RAM, instances, routes)
 
+Space quotas are scoped to the space and can further constrain the resources
 
+Spaces inherit resource quotas from orgs
+
+If restrictions are not set, they inherit the org restrictions or have unlimited availability
+
+## Create orgs, spaces, users and quotas
+
+### Org Quotas
 
 Login to cloud foundry using admin credentials
 
@@ -56,8 +65,6 @@ After logging in, list the orgs:
 ```bash
   cf orgs
 ```
-
-You will see that there is only one org with name **system**
 
 Before we create an org, create a quota with 2G memory:
 
@@ -75,30 +82,62 @@ You can list the quotas
   myorgquota   2G             1G                0        1                   disallowed           unlimited       0             unlimited  
 ```
 
-Now create 1 org using
-
-```bash
-  cf create-org my-org
-  cf target -o "my-org"
-  cf create-space my-space
-  cf target -o "my-org" -s "my-space"
-```
-
-Clone the repo [cloudfoundry-samples/test-app](https://github.com/cloudfoundry-samples/test-app).
-
-```bash
-  git clone https://github.com/cloudfoundry-samples/test-app
-  cd test-app/
-  cf push
-```
-
-The app is deployed.
-
-If you try to do the same thing with the **myorgquota** quota in my-space2, an error occured *Routes quota exceeded for organization 'my-org2'*.
+Now create a new org using the created quota above
 
 ```bash
   cf create-org my-org2 -q myorgquota
   cf target -o "my-org2"
   cf create-space my-space2
   cf target -o "my-org2" -s "my-space2"
+```
+
+If you try to deploy the test_app like we have seen previously in my-space2 with the repo [cloudfoundry-samples/test-app](https://github.com/cloudfoundry-samples/test-app), an error occured *Routes quota exceeded for organization 'my-org2'*.
+
+### Create user hr
+
+```bash
+  cf create-org hr
+  cf create-user hr.manager@example.com password    
+```
+
+### Assign OrgManager Role
+
+```bash
+cf set-org-role hr.manager@example.com hr OrgManager
+```
+
+You can log as hr.manager
+
+```bash
+cf login 
+API endpoint: https://...
+
+Email: hr.manager@example.com
+Password: 
+
+Authenticating...
+OK
+
+Targeted org hr.
+
+API endpoint:   https://...
+API version:    3.156.0
+user:           hr.manager@example.com
+org:            hr
+space:          No space targeted, use 'cf target -s SPACE'
+```
+
+You can create a space
+
+```bash
+cf create-space review
+```
+
+but you are not allowed to create users
+
+```bash
+cf create-user hr.user@example.com password
+Creating user hr.user@example.com...
+You are not authorized to perform the requested action.
+FAILED
 ```

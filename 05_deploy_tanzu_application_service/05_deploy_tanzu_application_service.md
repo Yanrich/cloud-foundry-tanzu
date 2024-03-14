@@ -140,13 +140,13 @@ e2-highmem-2 cpu:2 ram:16 disk: 64
 On the jumpbox, you can see the errands available
 
 ```bash
-  bosh -d `bosh deployments --column=name` errands
+  bosh -d `bosh deployments --column=name | grep cf` errands
 ```
 
 You can run a second time Smoke Test Errand if you want
 
 ```bash
-  bosh -d `bosh deployments --column=name` run-errand smoke_tests
+  bosh -d `bosh deployments --column=name | grep cf` run-errand smoke_tests
 ```
 
 ### Post TAS Install
