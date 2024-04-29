@@ -50,7 +50,7 @@ unzip terraforming-gcp-0.98.0.zip
 cd pivotal-cf-terraforming-gcp-f4aab02/terraforming-pas
 ```
 
-- Create a terraform.tfvars file with by modifying the Opsman URL to match the version noted above (3.0.19-build.1050)
+- Create a terraform.tfvars file with by modifying the Opsman URL to match the version noted above (3.0.25-build.1261)
 
 ```bash
 cat > ./terraform.tfvars <<-EOF
@@ -59,7 +59,7 @@ project = "$PROJECT_ID"
 region = "us-east1"
 zones = ["us-east1-b", "us-east1-c", "us-east1-d"]
 dns_suffix = "$DOMAIN_NAME"
-opsman_image_url = "https://storage.googleapis.com/ops-manager-us/pcf-gcp-3.0.19-build.1050.tar.gz"
+opsman_image_url = "https://storage.googleapis.com/ops-manager-us/pcf-gcp-3.0.25-build.1261.tar.gz"
 create_gcs_buckets = "false"
 external_database = 0
 ssl_cert = <<SSL_CERT

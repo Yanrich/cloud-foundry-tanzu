@@ -25,6 +25,11 @@ Copy this UAA API Token to put it in the .env file of LAB 1
 
 ```bash
 PIVNET_TOKEN=xxxxxxxxx-r
+```
+
+Then, type the following commands
+
+```bash
 source ~/.bashrc
 echo $PIVNET_TOKEN
 ```
@@ -66,7 +71,7 @@ In the search field, enter "VMware Tanzu Application Service for VMs"
 
 On the product page, note "Releases" drop-down
 
-For a given release (for instance 4.0.17+LTS-T), a product will consist of one or more downloadable software artifacts
+For a given release (for instance 4.0.21+LTS-T), a product will consist of one or more downloadable software artifacts
 
 There are 3 artifacts named “Small Footprint PAS”, ”CF CLI” and “Pivotal Application Service”
 
@@ -75,13 +80,13 @@ In the details (right column), we have the supported versions VMware Tanzu Opera
 In the "Small Footprint TAS" section, click on the "i" and copy the Pivnet CLI line
 
 ```bash
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.17+LTS-T' --product-file-id=1725176
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.21+LTS-T' --product-file-id=1785154
 ```
 
 In the "CF CLI" section, note the version supported and install cf CLI (see [Installers and compressed binaries](https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide#installers-and-compressed-binaries))
 
 ```bash
-curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=8.7.7&source=github" | tar -zx
+curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=8.7.9&source=github" | tar -zx
 sudo mv cf8 /usr/local/bin
 sudo mv cf /usr/local/bin
 # ...copy tab completion file on Ubuntu (takes affect after re-opening your shell)
@@ -93,12 +98,12 @@ cf version
 By clicking on Pivotal Stemcells (Ubuntu Xenial), do the same operation for Ubuntu Xenial Stemcell for Google Cloud Platform
 
 ```bash
-pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.759' --product-file-id=1655574
-pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.318' --product-file-id=1671410
+pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.924' --product-file-id=1777045
+pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.423' --product-file-id=1778542
 ```
 
 For Tanzu Ops Manager, note the version and the build
 
 ```bash
-Tanzu Ops Manager YAML for GCP - 3.0.19+LTS-T (3.0.19-build.1050)
+Tanzu Ops Manager YAML for GCP - 3.0.25+LTS-T (3.0.25-build.1261)
 ```

@@ -50,7 +50,7 @@ On Google Cloud Console web UI, click on the zone you just created, click on **A
 DNS name: vcapenv.example.com
 ```
 
-Select Resource record type as NS and writ the name servers in the  vcapenv-zone
+Select Resource record type as NS and write the name servers in the  vcapenv-zone
 
 ```bash
 ns-cloud-a1.googledomains.com.
