@@ -6,35 +6,14 @@ In this lab you will be:
 
 ## Steps to install Tanzu application Service
 
-### Om installation
-
-See [om tool](https://github.com/pivotal-cf/om)
-
-```bash
-wget https://github.com/pivotal-cf/om/releases/download/7.10.1/om-linux-amd64-7.10.1 &&
-chmod +x om-linux-amd64-7.10.1 &&
-sudo mv om-linux-amd64-7.10.1 /usr/local/bin/om
-```
-
-Define environment variables that pre-configure your target om url and
-credentials.
-Add the following lines to your ~/.env file:
-
-```bash
-export OM_USERNAME="admin"
-export OM_PASSWORD="******" # replace with your ops manager password
-source ~/.env
-```
-
 ### Import tile and stemcell to ops manager
 
 Use the om CLI to upload both the TAS tile and its stemcell to your Ops
 Manager.
 
 ```bash
-om upload-stemcell -s light-bosh-stemcell-1.318-google-kvm-ubuntu-jammy-go_agent.tgz
-om upload-product -p srt-2.11.50-build.2.pivotal
-#om upload-product -p srt-4.0.12-build.2.pivotal
+om upload-stemcell -s light-bosh-stemcell-1.423-google-kvm-ubuntu-jammy-go_agent.tgz
+om upload-product -p srt-4.0.21-build.4.pivotal
 ```
 
 ### Manually configure TAS tile
