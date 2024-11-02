@@ -12,5 +12,5 @@ Once the Google Cloud credits have been validated, upgrade the account to benefi
   
 - Linux computer
 - Gmail account to benefit from Google Cloud credits
-- [VMware Account](https://account.run.pivotal.io/z/uaa/sign-up) with the same email address to download the different products on network.pivotal.io
+- [Broadcom support portal](https://profile.broadcom.com/web/registration) with the same email address to download the different products related to Tanzu
 - domain name of a registrar. Following the workshop, the domain name was purchased from [GoDaddy](https://www.godaddy.com/en-ca). If your registrar is not GoDaddy, similar steps should be performed.

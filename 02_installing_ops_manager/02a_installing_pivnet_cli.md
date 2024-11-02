@@ -15,13 +15,15 @@ gcloud compute ssh ubuntu@jumpbox --zone=$CLOUDSDK_COMPUTE_ZONE
 
 ## Network.pivotal.io
 
-Go to [network.pivotal.io](https://network.pivotal.io/) and create an account with the fictitious email address used in LAB 1
+Go to [Broadcom support portal](https://profile.broadcom.com/web/registration) and create an account with the fictitious email address used in LAB 1
 
-Once registered, go to your profile (top right of the page)
+Once registered, select the Tanzu category (button on the left of your profile at the top right)
 
-On the UAA API Token line, click on “Request New Refresh Token”
+In My Dashboard, click on Tanzu API Token in the Quick Links square on the right below Critical Alerts
 
-Copy this UAA API Token to put it in the .env file of LAB 1
+Click on Request New Refresh Token
+
+Copy this "Refresh Token" to put it in the .env file of LAB 1
 
 ```bash
 PIVNET_TOKEN=xxxxxxxxx-r
