@@ -2,7 +2,7 @@
 
 ## Project purpose
 
-The goal of this project is to have a good understanding of Cloud Foundry. We will use a solution certified by the cloud foundry foundation, VMware Tanzu Application Service for VMs (TAS for VMs) [v2.11](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/2.11/tas-for-vms/runtime-rn.html). The cloud provider used will be GCP.
+The goal of this project is to have a good understanding of Cloud Foundry. We will use a solution certified by the cloud foundry foundation, VMware Tanzu Application Service for VMs (TAS for VMs) [v4.0](https://docs.vmware.com/en/VMware-Tanzu-Application-Service/4.0/tas-for-vms/concepts-overview.html). The cloud provider used will be GCP.
 
 Once the Google Cloud credits have been validated, upgrade the account to benefit from all the features and not be limited in the number of IP addresses, for example.
 

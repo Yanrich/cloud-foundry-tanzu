@@ -34,6 +34,7 @@ Then, type the following commands
 ```bash
 source ~/.bashrc
 echo $PIVNET_TOKEN
+echo PIVNET_TOKEN=$PIVNET_TOKEN >> ~/.envv
 ```
 
 ## Installing pivnet-cli
@@ -67,28 +68,28 @@ pivnet download-product-files -p <product-name> -r <product-version> -i <product
 
 :bulb: If you try to download a product, you must first accept the EULA from the web browser
 
-[Network.pivotal.io](https://network.pivotal.io/) is essentially a catalog of software artifacts published by VMware, including the Tanzu Application Service (TAS), Operations Manager, TAS service tiles, Health watch, Harbor, Concourse for VMware Tanzu and partner products that are part of the Tanzu ecosystem.
+[Broadcom support portal](https://support.broadcom.com/) is essentially a catalog of software artifacts published by Broadcom, including the Tanzu Application Service (TAS), Operations Manager, TAS service tiles, Health watch, Harbor, Concourse for VMware Tanzu and partner products that are part of the Tanzu ecosystem.
 
 In the search field, enter "VMware Tanzu Application Service for VMs"
 
 On the product page, note "Releases" drop-down
 
-For a given release (for instance 4.0.21+LTS-T), a product will consist of one or more downloadable software artifacts
+For a given release (for instance 4.0.29+LTS-T), a product will consist of one or more downloadable software artifacts
 
-There are 3 artifacts named “Small Footprint PAS”, ”CF CLI” and “Pivotal Application Service”
+There are 3 artifacts named “Small Footprint TAS”, ”CF CLI” and “Tanzu Application Service”
 
-In the details (right column), we have the supported versions VMware Tanzu Operations Manager and the Pivotal Stemcells
-
-In the "Small Footprint TAS" section, click on the "i" and copy the Pivnet CLI line
+We want to download the "Small Footprint TAS" section
 
 ```bash
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.21+LTS-T' --product-file-id=1785154
+pivnet product-files -p elastic-runtime -r 4.0.29+LTS-T
+pivnet accept-eula -p elastic-runtime -r 4.0.29+LTS-T
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.29+LTS-T' --product-file-id=197904
 ```
 
 In the "CF CLI" section, note the version supported and install cf CLI (see [Installers and compressed binaries](https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide#installers-and-compressed-binaries))
 
 ```bash
-curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=8.7.9&source=github" | tar -zx
+curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=8.8.2&source=github" | tar -zx
 sudo mv cf8 /usr/local/bin
 sudo mv cf /usr/local/bin
 # ...copy tab completion file on Ubuntu (takes affect after re-opening your shell)

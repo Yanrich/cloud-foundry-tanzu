@@ -64,7 +64,7 @@ gcloud services enable sqladmin.googleapis.com
 ```
 
 - Installing TAS for VMs requires more than the project's default 8 IP addresses.
-- In the Google Cloud console, go to IAM&Admin > Quotas
+- In the Google Cloud console, go to IAM&Admin > Quotas & System Limits
 - In the filter, put:
 
 ```bash
