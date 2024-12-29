@@ -7,9 +7,9 @@
 - Go to [Bosh CLI](https://bosh.io/docs/cli-v2-install/) and navigate to the [Bosh CLI Github release page](https://github.com/cloudfoundry/bosh-cli/releases)
 
 ```bash
-wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.5.6/bosh-cli-7.5.6-linux-amd64 &&
-chmod +x bosh-cli-7.5.6-linux-amd64 &&
-sudo mv bosh-cli-7.5.6-linux-amd64 /usr/local/bin/bosh
+wget https://github.com/cloudfoundry/bosh-cli/releases/download/v7.8.6/bosh-cli-7.8.6-linux-amd64 &&
+chmod +x bosh-cli-7.8.6-linux-amd64 &&
+sudo mv bosh-cli-7.8.6-linux-amd64 /usr/local/bin/bosh
 ```
 
 ### Install OM
@@ -17,9 +17,9 @@ sudo mv bosh-cli-7.5.6-linux-amd64 /usr/local/bin/bosh
 - Go to [OM](https://github.com/pivotal-cf/om) and navigate to the [OM Github release page](https://github.com/pivotal-cf/om/releases)
 
 ```bash
-wget https://github.com/pivotal-cf/om/releases/download/7.10.1/om-linux-amd64-7.10.1 &&
-chmod +x om-linux-amd64-7.10.1 &&
-sudo mv om-linux-amd64-7.10.1 /usr/local/bin/om
+wget https://github.com/pivotal-cf/om/releases/download/7.14.0/om-linux-amd64-7.14.0 &&
+chmod +x om-linux-amd64-7.14.0 &&
+sudo mv om-linux-amd64-7.14.0 /usr/local/bin/om
 ```
 
 ### Add env variables
@@ -31,7 +31,7 @@ cat >> ./.env <<-EOF
 export OM_TARGET="https://pcf.${ENV_NAME}.${DOMAIN_NAME}"
 export OM_SKIP_SSL_VALIDATION="true"
 export OM_USERNAME="admin"
-export OM_PASSWORD="yourpassword"
+export OM_PASSWORD="your_ops_manager_password"
 EOF
 ```
 

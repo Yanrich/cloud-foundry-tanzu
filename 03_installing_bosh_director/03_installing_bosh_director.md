@@ -28,7 +28,7 @@ Select Google Config. Complete the following fields:
 
 - Project ID: Enter the value of project from your terraform.tfvars file
 - Default Deployment Tag: Enter the value of env_name from your terraform.tfvars file
-- Select the radio button for “The ops manager VM Service account”
+- Select the radio button for “The Tanzu Ops Manager VM Service account”
 - Click Save
 
 ### Director Config
@@ -130,7 +130,8 @@ Select the "infrastructure" network for your BOSH Director.
 ### Security
 
 Copy the root CA public key in Trusted Certificates
-Be sure to select the checkbox Include OpsManager Root CA in Trusted Certs
+
+Be sure to select the checkbox Include Tanzu Ops Manager Root CA in Trusted Certs
 
 ### Resource config
 

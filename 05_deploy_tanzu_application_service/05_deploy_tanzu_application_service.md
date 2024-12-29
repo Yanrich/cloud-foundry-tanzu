@@ -12,8 +12,8 @@ Use the om CLI to upload both the TAS tile and its stemcell to your Ops
 Manager.
 
 ```bash
-om upload-stemcell -s light-bosh-stemcell-1.423-google-kvm-ubuntu-jammy-go_agent.tgz
-om upload-product -p srt-4.0.21-build.4.pivotal
+om upload-stemcell -s light-bosh-stemcell-1.651-google-kvm-ubuntu-jammy-go_agent.tgz
+om upload-product -p srt-4.0.30-build.2.pivotal
 ```
 
 ### Manually configure TAS tile
