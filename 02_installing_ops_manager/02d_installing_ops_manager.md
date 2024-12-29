@@ -63,7 +63,7 @@ ns-cloud-a4.googledomains.com.
 - Ops Manager has not yet been configured so the first screen you will prompt you to configure authentication.
 - Select “internal Authentication”
 - Give User name as admin and some password.
-- Give any passphrase which has 20 characters
+- Give any decryption passphrase which has 20 characters
 - It will take some time to configure and it will show a login screen.
 - Login with your credentials.
 - You will be able to observe home page of ops
