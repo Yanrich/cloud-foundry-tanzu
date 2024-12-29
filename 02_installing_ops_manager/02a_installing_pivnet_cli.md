@@ -70,20 +70,18 @@ pivnet download-product-files -p <product-name> -r <product-version> -i <product
 
 [Broadcom support portal](https://support.broadcom.com/) is essentially a catalog of software artifacts published by Broadcom, including the Tanzu Application Service (TAS), Operations Manager, TAS service tiles, Health watch, Harbor, Concourse for VMware Tanzu and partner products that are part of the Tanzu ecosystem.
 
-In the search field, enter "VMware Tanzu Application Service for VMs"
+In the search field, enter "Tanzu Platform for Cloud Foundry"
 
-On the product page, note "Releases" drop-down
-
-For a given release (for instance 4.0.29+LTS-T), a product will consist of one or more downloadable software artifacts
+For a given release (for instance 4.0.30+LTS-T), a product will consist of one or more downloadable software artifacts
 
 There are 3 artifacts named “Small Footprint TAS”, ”CF CLI” and “Tanzu Application Service”
 
 We want to download the "Small Footprint TAS" section
 
 ```bash
-pivnet product-files -p elastic-runtime -r 4.0.29+LTS-T
-pivnet accept-eula -p elastic-runtime -r 4.0.29+LTS-T
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.29+LTS-T' --product-file-id=197904
+pivnet product-files -p elastic-runtime -r 4.0.30+LTS-T
+pivnet accept-eula -p elastic-runtime -r 4.0.30+LTS-T
+pivnet download-product-files --product-slug='elastic-runtime' --release-version='4.0.30+LTS-T' --product-file-id=199896
 ```
 
 In the "CF CLI" section, note the version supported and install cf CLI (see [Installers and compressed binaries](https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide#installers-and-compressed-binaries))
@@ -98,15 +96,20 @@ sudo curl -o /usr/share/bash-completion/completions/cf8 https://raw.githubuserco
 cf version
 ```
 
-By clicking on Pivotal Stemcells (Ubuntu Xenial), do the same operation for Ubuntu Xenial Stemcell for Google Cloud Platform
+By clicking on "Upgrade/Dependency Information", you will see the recommended version for Stemcells (Ubuntu Jammy) and VMware Tanzu Operations Manager. You have to download the products for Google Cloud Platform.
 
 ```bash
-pivnet download-product-files --product-slug='stemcells-ubuntu-xenial' --release-version='621.924' --product-file-id=1777045
-pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.423' --product-file-id=1778542
+pivnet product-files -p stemcells-ubuntu-jammy -r 1.651
+pivnet accept-eula -p stemcells-ubuntu-jammy -r 1.651
+pivnet download-product-files --product-slug='stemcells-ubuntu-jammy' --release-version='1.651' --product-file-id=200031
 ```
 
-For Tanzu Ops Manager, note the version and the build
+For Tanzu Ops Manager, note the version and the build in the yml file
 
 ```bash
-Tanzu Ops Manager YAML for GCP - 3.0.25+LTS-T (3.0.25-build.1261)
+pivnet product-files -p ops-manager -r 3.0.35+LTS-T
+pivnet accept-eula -p ops-manager -r 3.0.35+LTS-T
+pivnet download-product-files -p ops-manager -r 3.0.35+LTS-T -i 200219 
 ```
+
+Example: Tanzu Ops Manager YAML for GCP - 3.0.35+LTS-T (3.0.35-build.1608)
