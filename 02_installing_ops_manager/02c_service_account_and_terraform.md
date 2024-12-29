@@ -35,10 +35,10 @@ unzip terraform.zip && \
 sudo mv terraform /usr/local/bin 
 ```
 
-- Download the Terraform template in TAS 2.9.5 after accepting EULA (GCP Terraform Templates 0.98.0)
+- Download the Terraform template file (GCP Terraform Templates 0.98.0) from this section to the jumpbox
 
 ```bash
-pivnet download-product-files --product-slug='elastic-runtime' --release-version='2.9.5' --product-file-id=697856
+scp -i /home/user/.ssh/google_compute_engine terraforming-gcp-0.98.0.zip ubuntu@<External IP>:
 ```
 
 :bulb: For more information, please see [Deploying Ops Manager on GCP Using Terraform](https://docs.pivotal.io/ops-manager/2-9/gcp/prepare-env-terraform.html) and [Install Ops Manager using paving in GitHub](https://github.com/pivotal/paving)
@@ -50,7 +50,7 @@ unzip terraforming-gcp-0.98.0.zip
 cd pivotal-cf-terraforming-gcp-f4aab02/terraforming-pas
 ```
 
-- Create a terraform.tfvars file with by modifying the Opsman URL to match the version noted above (3.0.25-build.1261)
+- Create a terraform.tfvars file with by modifying the Opsman URL to match the version noted above (3.0.35-build.1608)
 
 ```bash
 cat > ./terraform.tfvars <<-EOF
@@ -59,7 +59,7 @@ project = "$PROJECT_ID"
 region = "us-east1"
 zones = ["us-east1-b", "us-east1-c", "us-east1-d"]
 dns_suffix = "$DOMAIN_NAME"
-opsman_image_url = "https://storage.googleapis.com/ops-manager-us/pcf-gcp-3.0.25-build.1261.tar.gz"
+opsman_image_url = "https://storage.googleapis.com/ops-manager-us/pcf-gcp-3.0.35-build.1608.tar.gz"
 create_gcs_buckets = "false"
 external_database = 0
 ssl_cert = <<SSL_CERT
